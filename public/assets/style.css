@@ -92,10 +92,12 @@ header button svg .fill{
 .container{
     width: 100%;
     padding: 15px;
+    float: left;
 }
 
 ul.todo{
     width: 100%;
+    float: left;
 }
 
 ul.todo li{
@@ -190,3 +192,43 @@ ul.todo li .buttons button svg .fill{
 ul.todo li .buttons button.complete svg .fill{
     fill: #25B99A;
 }
+
+/* 如果当前元素不是completed, 那么让对号变成白色 */
+ul.todo:not(#completed) li .buttons button.complete:hover svg .fill{
+    fill: #FFF;
+}
+
+/* 如果当前元素不是completed, 那么让背景变成绿色 */
+ul.todo:not(#completed) li .buttons button.complete:hover svg{
+    background: rgba(37,185,154,0.75);
+}
+
+/* 如果当前元素是completed, 那么让背景变成绿色 */
+ul.todo#completed li .buttons button.complete svg{
+    background: #25B99A;
+    border: 0px;
+}
+
+ul.todo#completed li .buttons button.complete svg .fill{
+    fill: #FFF;
+}
+
+/* 设置完成列表容器的样式 */
+ul.todo#completed{
+    position: relative;
+    padding: 60px 0 0 0;
+}
+
+/* 如果completed容器中包含内容,那么在元素前添加一条线 */
+ul.todo#completed:not(empty):before{
+    content: "";
+    width: 150px;
+    height: 1px;
+    background: #D8E5E0;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    margin: 0 0 0 -75px;
+}
+
+
