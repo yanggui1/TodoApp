@@ -34,7 +34,7 @@ module.exports = function (app) {
             if(err) throw err;
             res.render("todo",{todos:data});
             console.log("IP: "+req.ip+" 请求数据 >>>");
-        });
+        }).sort({"_id":-1});
     })
 
     // 传递数据
@@ -56,7 +56,7 @@ module.exports = function (app) {
             if(err) {
                 throw err;
             } else {
-                console.log("IP: "+req.ip+" 删除数据: "+data.item);
+                console.log("IP: "+req.ip+" 删除数据");
                 res.json(data);
             }
         });
